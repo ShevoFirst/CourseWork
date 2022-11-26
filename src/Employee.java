@@ -1,6 +1,6 @@
 import java.util.stream.IntStream;
 
-public class Employee {
+public class Employee {//
    private String fio;
    private int departament;
    private int salary;

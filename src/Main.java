@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) {//
         Employee[] employees = new Employee[10];
         for (int i = 0; i < employees.length; i++) {
             employees[i] = new Employee("человек ",(int) (Math.random()*5+1),(int)(Math.random()*100000+20000));
