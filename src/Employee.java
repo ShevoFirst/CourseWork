@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.stream.IntStream;
 
 public class Employee {///
@@ -58,43 +59,17 @@ public class Employee {///
     public String toString() {
         return "ФИО=" + fio + ", отдел =" + departament + ", зарплата  =" + salary + ", id=" + id;
     }
-    public static void displayEmployees(Employee[] a){
-        for (Employee employee : a) {
-            System.out.println(employee.toString());
-        }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return departament == employee.departament && salary == employee.salary && id == employee.id && fio.equals(employee.fio);
     }
 
-    public static int sumSalary(Employee[] a){
-        int sumSalary = 0;
-        for (Employee employee : a) {
-            sumSalary += employee.salary;
-        }
-        return sumSalary;
-    }
-    public static int minSalary(Employee[] a){
-        int minSalary=1000000000;
-        for (Employee employee : a) {
-            if (employee.salary < minSalary) {
-                minSalary = employee.salary;
-            }
-        }
-        return minSalary;
-    }
-    public static int maxSalary(Employee[] a){
-        int maxSalary=-1;
-        for (Employee employee : a) {
-            if (employee.salary > maxSalary) {
-                maxSalary = employee.salary;
-            }
-        }
-        return maxSalary;
-    }
-    public static double sredSalary(Employee[] a){
-        return sumSalary(a)/a.length;
-    }
-    public static void displayFIO(Employee[] a){
-        for (Employee employee : a) {
-            System.out.println(employee.fio);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(fio, departament, salary, id);
     }
 }
